@@ -3,7 +3,7 @@ use clearscreen::clear;
 
 fn main() {
     clear().expect("error");
-    loop {
+    'start: loop {
         println!("Remember, Y is optional");
         println!("Coordinates (X Y Z): ");
         let mut coordinates = String::new();
@@ -22,7 +22,7 @@ fn main() {
                 Err(_error) => {
                     clear().expect("error");
                     println!("Please input only the coordinates seperated with spaces!");
-                    continue;
+                    continue 'start;
                 } 
             };
 
@@ -30,7 +30,7 @@ fn main() {
         }
 
         if coord_vec.len() < 2 {
-            println!("Please input at least X and Y coordinates!");
+            println!("Please input at least X and Z coordinates!");
         }
 
         println!("Coordinates 2 (X Y Z): ");
@@ -50,7 +50,7 @@ fn main() {
                 Err(_error) => {
                     clear().expect("error");
                     println!("Please input only the coordinates seperated with spaces!");
-                    continue;
+                    continue 'start;
                 } 
             };
 
@@ -58,7 +58,7 @@ fn main() {
         }
 
         if coord_vec_2.len() < 2 {
-            println!("Please input at least X and Y coordinates!");
+            println!("Please input at least X and Z coordinates!");
         }
 
         let mut distance: f32 = 0.0;
