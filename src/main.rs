@@ -119,6 +119,6 @@ fn main() {
 
         clear().expect("error");
 
-        println!("Distance between coords 1 and coord 2 is: {distance}");
+        println!("Distance between coords 1 and coords 2 is: {distance}");
     }
 }
